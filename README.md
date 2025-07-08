@@ -136,6 +136,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - National Bank of Poland for exchange rate data
 - U.S. Energy Information Administration for oil price data
+- Lotos for historical petrol price data in Poland
 - Microsoft Fabric team for the analytics platform
 
 ## Contact
