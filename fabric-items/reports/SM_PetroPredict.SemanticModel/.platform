@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "SM_PetroPredict"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5d9f1480-e193-912b-4650-17d43931dddd"
+  }
+}

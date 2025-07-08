@@ -1,0 +1,46 @@
+table oilprices
+	lineageTag: a439f637-0734-4f80-92e5-91edb8d60ef6
+	sourceLineageTag: [dbo].[oilprices]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 76cd7619-949c-4c06-9e02-88972460186f
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column oil_type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b68600da-5126-4de0-82e8-8818d996c2e7
+		sourceLineageTag: oil_type
+		summarizeBy: none
+		sourceColumn: oil_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_usd
+		dataType: double
+		sourceProviderType: float
+		lineageTag: d98fca86-f869-46aa-ae9a-f16f5ec4de67
+		sourceLineageTag: price_usd
+		summarizeBy: sum
+		sourceColumn: price_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition oilprices = entity
+		mode: directLake
+		source
+			entityName: oilprices
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

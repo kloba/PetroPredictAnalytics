@@ -1,0 +1,56 @@
+table fxrates
+	lineageTag: 3711ed3c-f522-4f7b-97a4-5365ff6d04b4
+	sourceLineageTag: [dbo].[fxrates]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b594705e-b3db-4066-86dd-3482ef0c918e
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column from_currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 199bc526-da9b-491e-9bd0-aa11e341a0c3
+		sourceLineageTag: from_currency
+		summarizeBy: none
+		sourceColumn: from_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column to_currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 498cfb0b-d557-480e-935f-cc2da81df8b3
+		sourceLineageTag: to_currency
+		summarizeBy: none
+		sourceColumn: to_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column exchange_rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 01820673-4ef4-426f-a566-e486f7c13332
+		sourceLineageTag: exchange_rate
+		summarizeBy: sum
+		sourceColumn: exchange_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fxrates = entity
+		mode: directLake
+		source
+			entityName: fxrates
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

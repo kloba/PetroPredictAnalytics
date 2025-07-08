@@ -1,0 +1,110 @@
+table polishpetrolprices
+	lineageTag: 166956a0-6f83-483b-9366-88fd87154add
+	sourceLineageTag: [dbo].[polishpetrolprices]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4746e68c-10f5-464f-802c-4121a900bad7
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column fuel_type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7ae13d21-e66e-4b61-a933-bc4fb1c19082
+		sourceLineageTag: fuel_type
+		summarizeBy: none
+		sourceColumn: fuel_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_usd_per_liter
+		dataType: double
+		sourceProviderType: float
+		lineageTag: de17fdeb-e051-4d57-b494-b017351ff893
+		sourceLineageTag: price_usd_per_liter
+		summarizeBy: sum
+		sourceColumn: price_usd_per_liter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_pln_per_liter
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 2f617d49-1043-43fa-b8ce-ecc06e5fea9e
+		sourceLineageTag: price_pln_per_liter
+		summarizeBy: sum
+		sourceColumn: price_pln_per_liter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column country
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: db07fc8d-cd3e-4d0d-89b2-698dccd5aeb3
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_original
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ed38e0ae-17f7-43ee-9c4e-728ebe17f773
+		sourceLineageTag: currency_original
+		summarizeBy: none
+		sourceColumn: currency_original
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0682b03b-4ff9-4cc7-bf78-0cbdc76c6752
+		sourceLineageTag: source
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d88bc327-5425-4893-b48b-5e7231447528
+		sourceLineageTag: data_type
+		summarizeBy: none
+		sourceColumn: data_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column exchange_rate_used
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 1daf1c5c-2edb-44ba-bb3f-ad23b11e0223
+		sourceLineageTag: exchange_rate_used
+		summarizeBy: sum
+		sourceColumn: exchange_rate_used
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition polishpetrolprices = entity
+		mode: directLake
+		source
+			entityName: polishpetrolprices
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,125 @@
+table petrol_price_forecast_sarimax
+	lineageTag: 0fcb7fcb-8351-49c5-a0e9-b9b43f579b64
+	sourceLineageTag: [dbo].[petrol_price_forecast_sarimax]
+
+	column forecast_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ca2feebf-189a-41bb-a267-b69b3d9e1106
+		sourceLineageTag: forecast_date
+		summarizeBy: none
+		sourceColumn: forecast_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_day
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bb5b734c-d79d-4588-9a62-c3cdcda6ae24
+		sourceLineageTag: forecast_day
+		summarizeBy: sum
+		sourceColumn: forecast_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column petrol_price_forecast
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 3f4ed63e-d5ba-469d-a2fc-7af3bb1d0303
+		sourceLineageTag: petrol_price_forecast
+		summarizeBy: sum
+		sourceColumn: petrol_price_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column usd_pln_rate_forecast
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 402780fd-4402-46e1-9313-e59e1b645f86
+		sourceLineageTag: usd_pln_rate_forecast
+		summarizeBy: sum
+		sourceColumn: usd_pln_rate_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oil_price_pln_forecast
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e12487df-3cc6-493b-9a15-735ff0fc1592
+		sourceLineageTag: oil_price_pln_forecast
+		summarizeBy: sum
+		sourceColumn: oil_price_pln_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oil_price_usd_forecast
+		dataType: double
+		sourceProviderType: float
+		lineageTag: d02e710a-d7ee-481a-accd-c9db40e6c3e6
+		sourceLineageTag: oil_price_usd_forecast
+		summarizeBy: sum
+		sourceColumn: oil_price_usd_forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column model_type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 619146e2-50f1-4827-ab72-58d6d768efdf
+		sourceLineageTag: model_type
+		summarizeBy: none
+		sourceColumn: model_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_run_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 00043968-8f5d-460a-907a-815d6909f7c9
+		sourceLineageTag: forecast_run_date
+		summarizeBy: none
+		sourceColumn: forecast_run_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_horizon_days
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 736ae314-356f-4633-9eb9-a91a2b81a989
+		sourceLineageTag: forecast_horizon_days
+		summarizeBy: sum
+		sourceColumn: forecast_horizon_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column model_parameters
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6f33b1ae-3dae-4959-b1db-a4dbee054467
+		sourceLineageTag: model_parameters
+		summarizeBy: none
+		sourceColumn: model_parameters
+
+		annotation SummarizationSetBy = Automatic
+
+	partition petrol_price_forecast_sarimax = entity
+		mode: directLake
+		source
+			entityName: petrol_price_forecast_sarimax
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
